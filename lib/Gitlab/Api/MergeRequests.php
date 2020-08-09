@@ -124,6 +124,9 @@ class MergeRequests extends AbstractApi
         $resolver->setDefined('include_rebase_in_progress')
             ->setAllowedTypes('include_rebase_in_progress', 'bool')
         ;
+        $resolver->setDefined('with_merge_status_recheck')
+            ->setAllowedTypes('with_merge_status_recheck', 'bool')
+        ;
 
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.$this->encodePath($mr_iid)), $resolver->resolve($parameters));
     }
