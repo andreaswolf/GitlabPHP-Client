@@ -211,7 +211,7 @@ class MergeRequests extends AbstractApi
      *
      * @return mixed
      */
-    public function merge($project_id, $mr_iid, $parameters = null)
+    public function merge($project_id, $mr_iid, $parameters = null, array $queryParams = [])
     {
         if (\is_array($parameters)) {
             $params = $parameters;
@@ -219,8 +219,9 @@ class MergeRequests extends AbstractApi
             @\trigger_error(\sprintf('Passing a string to the $parameters parameter of %s() is deprecated since 9.18 and will be banned in 10.0.', __METHOD__), E_USER_DEPRECATED);
             $params = ['merge_commit_message' => $parameters];
         }
+        $query = http_build_query($queryParams);
 
-        return $this->put($this->getProjectPath($project_id, 'merge_requests/'.$this->encodePath($mr_iid).'/merge'), $params);
+        return $this->put($this->getProjectPath($project_id, 'merge_requests/'.$this->encodePath($mr_iid).'/merge?'.$query), $params);
     }
 
     /**
