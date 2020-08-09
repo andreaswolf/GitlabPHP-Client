@@ -23,6 +23,9 @@ use Gitlab\Client;
  * @property int            $upvotes
  * @property int            $downvotes
  * @property array          $labels
+ * @property array          $head_pipeline
+ * @property bool           $merge_when_pipeline_succeeds
+ * @property bool           $should_remove_source_branch
  * @property User|null      $author
  * @property User|null      $assignee
  * @property Project        $project
@@ -44,12 +47,15 @@ class MergeRequest extends AbstractModel implements Noteable, Notable
         'description',
         'closed',
         'merged',
+        'head_pipeline',
         'author',
         'assignee',
         'project',
         'state',
         'source_project_id',
         'target_project_id',
+        'merge_when_pipeline_succeeds',
+        'should_remove_source_branch',
         'upvotes',
         'downvotes',
         'labels',
