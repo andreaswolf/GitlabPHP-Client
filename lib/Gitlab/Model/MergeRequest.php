@@ -24,6 +24,7 @@ use Gitlab\Client;
  * @property-read int $downvotes
  * @property-read array $labels
  * @property-read array $head_pipeline
+ * @property-read bool $blocking_discussions_resolved
  * @property-read bool $merge_when_pipeline_succeeds
  * @property-read bool $should_remove_source_branch
  * @property-read bool $rebase_in_progress
@@ -55,6 +56,7 @@ class MergeRequest extends AbstractModel implements Noteable, Notable
         'state',
         'source_project_id',
         'target_project_id',
+        'blocking_discussions_resolved',
         'merge_when_pipeline_succeeds',
         'should_remove_source_branch',
         'rebase_in_progress',
