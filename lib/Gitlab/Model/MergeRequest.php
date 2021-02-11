@@ -28,6 +28,7 @@ use Gitlab\Client;
  * @property bool           $blocking_discussions_resolved
  * @property bool           $should_remove_source_branch
  * @property bool           $rebase_in_progress
+ * @property bool           $work_in_progress
  * @property User|null      $author
  * @property User|null      $assignee
  * @property Project        $project
@@ -60,6 +61,7 @@ class MergeRequest extends AbstractModel implements Noteable, Notable
         'merge_when_pipeline_succeeds',
         'should_remove_source_branch',
         'rebase_in_progress',
+        'work_in_progress',
         'upvotes',
         'downvotes',
         'labels',
